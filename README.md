@@ -81,6 +81,7 @@ services:
       - shard2
       - shard3
 ```
+<img width="1600" height="908" alt="WhatsApp Image 2026-11-05 at 1 00 58 AM" src="https://github.com/user-attachments/assets/5ce5dbcb-d747-4cc1-b05b-46c1c2a952fb" />
 
 
 
