@@ -83,6 +83,21 @@ services:
 ```
 <img width="1600" height="908" alt="WhatsApp Image 2026-11-05 at 1 00 58 AM" src="https://github.com/user-attachments/assets/5ce5dbcb-d747-4cc1-b05b-46c1c2a952fb" />
 
+Operaciones de Configuracion Inicial
+
+Se inicializaron los conjuntos de replicas en cada contenedor y se registraron los shards en el router mongos mediante los siguientes comandos:
+
+    Inicializacion del Config Server y Shards (rs.initiate)
+
+    Adicion de Shards al Router:
+    ```
+    sh.addShard("shard1ReplSet/shard1:27018")
+    sh.addShard("shard2ReplSet/shard2:27018")
+    sh.addShard("shard3ReplSet/shard3:27018")
+
+    ```
+
+
 
 
 
