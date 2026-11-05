@@ -83,7 +83,7 @@ services:
 ```
 <img width="1600" height="908" alt="WhatsApp Image 2026-11-05 at 1 00 58 AM" src="https://github.com/user-attachments/assets/5ce5dbcb-d747-4cc1-b05b-46c1c2a952fb" />
 
-**Operaciones de Configuracion Inicial**
+# Operaciones de Configuracion Inicial #
 
 Se inicializaron los conjuntos de replicas en cada contenedor y se registraron los shards en el router mongos mediante los siguientes comandos:
 
@@ -98,7 +98,7 @@ Se inicializaron los conjuntos de replicas en cada contenedor y se registraron l
     ```
 <img width="603" height="627" alt="WhatsApp Image 2026-11-05 at 1AM" src="https://github.com/user-attachments/assets/bf3f75cd-fba3-4765-bf72-7133a1c8de96" />
 
-**Habilitacion de Sharding y Llave de Fragmentacion (Shard Key):**
+# Habilitacion de Sharding y Llave de Fragmentacion (Shard Key): #
 ````
 sh.enableSharding("BDAutos")
 db.cars.createIndex({ "maker_id": "hashed" })
@@ -107,7 +107,7 @@ sh.shardCollection("BDAutos.cars", { "maker_id": "hashed" })
 ````
 <img width="730" height="444" alt="WhatsApp Image 2026-11-05 at 1 18 34 AM" src="https://github.com/user-attachments/assets/9da51694-3315-4131-842f-f930c22906e7" />
 
-# Operaciones CRUD en el Cluster Distribuido
+# Operaciones CRUD en el Cluster Distribuido #
 
 Se realizaron pruebas de insercion, consulta y gestion de datos a traves del puerto del router (27017):
 
@@ -123,6 +123,30 @@ db.cars.insertMany([
 ````
 <img width="1177" height="607" alt="WhatsApp Image 2026-11-05 at 1 24 42 AM" src="https://github.com/user-attachments/assets/f2e626de-93e0-4f4a-9c7f-8ca02f94f1e1" />
 
+# Consulta de datos(read) # 
+````db.cars.find().pretty()````
+
+<img width="734" height="803" alt="WhatsApp Image 2026-11-05 at 1 27 47 AM" src="https://github.com/user-attachments/assets/309e47f3-1276-48fa-b2d1-a15983575dd1" />
+
+# Evidencia de Distribución de Datos (Sharding) #
+
+**Para comprobar que el clúster distribuyó la información de manera efectiva entre los fragmentos definidos, se ejecutó el comando de distribución:**
+
+````
+db.cars.getShardDistribution()
+````
+<img width="754" height="738" alt="WhatsApp Image 2026-11-05 at 1 29 50 AM" src="https://github.com/user-attachments/assets/925a5ffb-6192-42be-97e4-ab55877d7b6a" />
+
+# Conclusiones #
+
+````
+La implementación de este clúster demostró la potencia de las bases de datos distribuidas al permitir
+escalar el almacenamiento de forma horizontal. El uso de un router mongos simplifica por completo
+las operaciones CRUD para los clientes, mientras que el motor de MongoDB gestiona de manera
+transparente y automatizada la fragmentación de los documentos utilizando una llave
+hash (hashed shard key), garantizando un balance eficiente de la carga de
+trabajo entre los diferentes nodos del sistema.
+````
 
 
 
