@@ -96,7 +96,32 @@ Se inicializaron los conjuntos de replicas en cada contenedor y se registraron l
     sh.addShard("shard3ReplSet/shard3:27018")
 
     ```
+<img width="603" height="627" alt="WhatsApp Image 2026-11-05 at 1AM" src="https://github.com/user-attachments/assets/bf3f75cd-fba3-4765-bf72-7133a1c8de96" />
 
+**Habilitacion de Sharding y Llave de Fragmentacion (Shard Key):**
+````
+sh.enableSharding("BDAutos")
+db.cars.createIndex({ "maker_id": "hashed" })
+sh.shardCollection("BDAutos.cars", { "maker_id": "hashed" })
+
+````
+<img width="730" height="444" alt="WhatsApp Image 2026-11-05 at 1 18 34 AM" src="https://github.com/user-attachments/assets/9da51694-3315-4131-842f-f930c22906e7" />
+
+# Operaciones CRUD en el Cluster Distribuido
+
+Se realizaron pruebas de insercion, consulta y gestion de datos a traves del puerto del router (27017):
+
+Insercion de Datos (Create)
+
+````
+db.cars.insertMany([
+  { maker_id: 1, brand: "Volkswagen", model: "Jetta 1.8T", year: 2004, color: "Negro" },
+  { maker_id: 2, brand: "Chevrolet", model: "Camaro V6", year: 2010, color: "Rojo" },
+  { maker_id: 1, brand: "Volkswagen", model: "Golf GTI", year: 2012, color: "Blanco" },
+  { maker_id: 3, brand: "Ford", model: "Mustang", year: 2018, color: "Azul" }
+])
+````
+<img width="1177" height="607" alt="WhatsApp Image 2026-11-05 at 1 24 42 AM" src="https://github.com/user-attachments/assets/f2e626de-93e0-4f4a-9c7f-8ca02f94f1e1" />
 
 
 
