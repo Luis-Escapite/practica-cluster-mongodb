@@ -81,9 +81,6 @@ services:
       - shard2
       - shard3
 
-<img width="1719" height="976" alt="image" src="https://github.com/user-attachments/assets/0e8b8a9a-b7eb-4c44-a895-bdd5c13550f9" />
-
-
 
 
 
