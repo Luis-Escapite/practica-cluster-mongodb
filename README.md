@@ -83,7 +83,7 @@ services:
 ```
 <img width="1600" height="908" alt="WhatsApp Image 2026-11-05 at 1 00 58 AM" src="https://github.com/user-attachments/assets/5ce5dbcb-d747-4cc1-b05b-46c1c2a952fb" />
 
-Operaciones de Configuracion Inicial
+**Operaciones de Configuracion Inicial**
 
 Se inicializaron los conjuntos de replicas en cada contenedor y se registraron los shards en el router mongos mediante los siguientes comandos:
 
